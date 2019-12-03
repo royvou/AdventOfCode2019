@@ -59,6 +59,6 @@ namespace AdventOfCode.Solutions
                 .ToArray();
 
         public static int[] SplitByNewlineAsInt(this string input, bool shouldTrim = false) 
-            => input.SplitByNewline().Select(int.Parse).ToArray();
+            => input.SplitByNewline(shouldTrim).Select(int.Parse).ToArray();
     }
 }

@@ -22,3 +22,12 @@ Program.cs assumes that the root folder contains a config.json file and passes t
 }
 ```
 If no config.json exists, one is created automatically with an empty string as the cookie value. 
+
+## Changes to "AdventOfCode" Framework
+
+- .Editorconfig
+- ASolution.cs
+  - Change WebClient to HttpClient
+  - Create Solution Folder if it does not exist
+- SolutionCollector.cs
+  - Validate Base Type to prevent Tuples / Generated Linq types to also be matched.

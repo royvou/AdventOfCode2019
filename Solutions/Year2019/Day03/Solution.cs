@@ -40,7 +40,6 @@ namespace AdventOfCode.Solutions.Year2019
                 .Intersect(line2.Keys)
                 .Select(x => (line1[x] + line2[x], x))
                 .OrderBy(x => x.Item1)
-//                .Select(cor => (Manhattan(cor.X, cor.Y), cor))
                 .Select(x => x.Item1)
                 .FirstOrDefault()
                 .ToString();
