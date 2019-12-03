@@ -4,7 +4,7 @@ using System.Net;
 
 namespace AdventOfCode.Solutions
 {
-    internal abstract class ASolution
+    public abstract class ASolution
     {
         private Lazy<string> _input, _part1, _part2;
 

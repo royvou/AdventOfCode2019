@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Solutions.Year2019
 {
-    internal class Day05 : ASolution
+    public class Day05 : ASolution
     {
         public Day05() : base(5, 2019, "")
         {

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AdventOfCode.Solutions.Year2019
 {
-    internal class Day01 : ASolution
+    public class Day01 : ASolution
 	{
 		public Day01() : base(1, 2019, "")
 		{
