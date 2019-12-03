@@ -11,11 +11,12 @@
     </None>
   </ItemGroup>
   
-
+<!-- 
 <ItemGroup>
   <None Include="Solutions\Year2019\**\input">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
 </ItemGroup>
+-->
 
 </Project>

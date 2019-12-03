@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 
 namespace AdventOfCode.Solutions
 {
@@ -62,6 +63,7 @@ namespace AdventOfCode.Solutions
             if (doOutput) Console.WriteLine(output);
         }
 
+        private static readonly HttpClient httpClient = new HttpClient();
         private string LoadInput()
         {
             string INPUT_FILEPATH = $"./Solutions/Year{Year}/Day{Day.ToString("D2")}/input";
@@ -76,12 +78,12 @@ namespace AdventOfCode.Solutions
             {
                 try
                 {
-                    using (var client = new WebClient())
-                    {
-                        client.Headers.Add(HttpRequestHeader.Cookie, Program.Config.Cookie);
-                        input = client.DownloadString(INPUT_URL).Trim();
-                        File.WriteAllText(INPUT_FILEPATH, input);
-                    }
+                    using var message = new HttpRequestMessage(HttpMethod.Get, INPUT_URL);
+                    message.Headers.Add("Cookie", Program.Config.Cookie);                   
+                    input = httpClient.SendAsync(message).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();                    //using (var client = new WebClient())
+                    var fileInfo = new FileInfo(INPUT_FILEPATH);
+                    File.WriteAllText(INPUT_FILEPATH, input);
+
                 }
                 catch (WebException e)
                 {
