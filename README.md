@@ -1,4 +1,4 @@
-# AdventOfCodeBase
+# AdventOfCode2019
 A basic C# program for Advent of Code, retrieving puzzle inputs on the go and creating instances of solutions as they are created. It runs on .NET Core 3.0 and can be built easily in Visual Studio Code or Visual Studio. 
 
 #### Build & Run
