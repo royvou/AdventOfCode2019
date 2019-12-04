@@ -98,6 +98,8 @@ namespace AdventOfCode.Solutions
                     {
                         input = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                         var fileInfo = new FileInfo(INPUT_FILEPATH);
+                        if (!fileInfo.Directory.Exists)
+                            fileInfo.Directory.Create();
                         File.WriteAllText(INPUT_FILEPATH, input);
                     }
                     else
