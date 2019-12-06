@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -38,14 +39,18 @@ namespace AdventOfCode.Solutions
 
             if (part != 2)
             {
-                if (Part1 != "")
+                var partSw = new Stopwatch();
+                partSw.Start();
+                var part1 = Part1;
+                partSw.Stop();
+                if (part1 != "")
                 {
-                    output += $"Part 1: {Part1}\n";
+                    output += $"Part 1:\t{Part1}\n\t{partSw.ElapsedMilliseconds}MS\n";
                     doOutput = true;
                 }
                 else
                 {
-                    output += "Part 1: Unsolved\n";
+                    output += "Part 1: \tUnsolved\n";
                     if (part == 1)
                     {
                         doOutput = true;
@@ -54,14 +59,18 @@ namespace AdventOfCode.Solutions
             }
             if (part != 1)
             {
-                if (Part2 != "")
+                var partSw = new Stopwatch();
+                partSw.Start();
+                var part2 = Part2;
+                partSw.Stop();
+                if (part2 != "")
                 {
-                    output += $"Part 2: {Part2}\n";
+                    output += $"Part 2:\t{Part2}\n\t{partSw.ElapsedMilliseconds}MS\n";
                     doOutput = true;
                 }
                 else
                 {
-                    output += "Part 2: Unsolved\n";
+                    output += "Part 2: \tUnsolved\n";
                     if (part == 2)
                     {
                         doOutput = true;
