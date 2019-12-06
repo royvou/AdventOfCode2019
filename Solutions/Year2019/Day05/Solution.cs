@@ -19,7 +19,9 @@ namespace AdventOfCode.Solutions.Year2019
 
         protected override string SolvePartTwo()
         {
-            return null;
+            var inputList = Input.ToIntArray(",");
+
+            return SolvePart1With(inputList, 5).ToString();
         }
 
         private static int SolvePart1With(int[] memory, int input)
@@ -70,6 +72,25 @@ namespace AdventOfCode.Solutions.Year2019
                             return result;
 
                         instructionsDone = 2;
+                        break;
+
+                    case 5:
+                        index = pos(1) != 0 ? pos(2) : index + 3;
+                        instructionsDone = 0;
+                        break;
+                    case 6:
+                        index = pos(1) == 0 ? pos(2) : index + 3;
+                        instructionsDone = 0;
+                        break;
+                    case 7:
+                        memory[memory[index + 3]] = pos(1) < pos(2) ? 1 : 0;
+                        instructionsDone = 4;
+
+                        break;
+                    case 8:
+                        memory[memory[index + 3]] = pos(1) == pos(2) ? 1 : 0;
+                        instructionsDone = 4;
+
                         break;
                     case 99:
                         goto result;
