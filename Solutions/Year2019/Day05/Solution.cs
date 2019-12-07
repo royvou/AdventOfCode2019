@@ -13,7 +13,6 @@ namespace AdventOfCode.Solutions.Year2019
         {
             var inputList = Input.ToIntArray(",");
 
-           // var inputList = "1002,4,3,4,33".ToIntArray(",");
             return SolvePart1With(inputList ,1).ToString();
         }
 

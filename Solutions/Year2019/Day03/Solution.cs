@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace AdventOfCode.Solutions.Year2019
 {
@@ -45,16 +46,16 @@ namespace AdventOfCode.Solutions.Year2019
                 .ToString();
 
         }
-        private int Manhattan(int x, int y)
-        {
-            return Math.Abs(x) + Math.Abs(y);
-        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private int Manhattan(int x, int y) 
+            => Math.Abs(x) + Math.Abs(y);
 
         private IDictionary<(int X, int  Y), int> CalculatePoints(string input)
         {
-            var result = new Dictionary<(int X, int Y), int>();
 
             var parsedInput =  input.Split(",");
+            var result = new Dictionary<(int X, int Y), int>();
 
             int x = 0, y = 0, steps = 0;
 
