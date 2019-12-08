@@ -128,6 +128,28 @@ namespace AdventOfCode.Solutions
             return GetPermutations(list, length - 1)
                 .SelectMany(t => list.Where(e => !t.Contains(e)),
                     (t1, t2) => t1.Concat(new T[] { t2 }).ToList());
-        }    
+        }
+
+        public static IEnumerable<IEnumerable<TValue>> Chunk<TValue>(
+                      this IEnumerable<TValue> values,
+                      int chunkSize)
+        {
+            using (var enumerator = values.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    yield return GetChunk(enumerator, chunkSize).ToList();
+                }
+            }
+        }
+        private static IEnumerable<T> GetChunk<T>(
+                         IEnumerator<T> enumerator,
+                         int chunkSize)
+        {
+            do
+            {
+                yield return enumerator.Current;
+            } while (--chunkSize > 0 && enumerator.MoveNext());
+        }
     }
 }
