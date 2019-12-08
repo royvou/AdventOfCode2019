@@ -130,7 +130,7 @@ namespace AdventOfCode.Solutions
                     (t1, t2) => t1.Concat(new T[] { t2 }).ToList());
         }
 
-        public static IEnumerable<IEnumerable<TValue>> Chunk<TValue>(
+        public static IEnumerable<IList<TValue>> Chunk<TValue>(
                       this IEnumerable<TValue> values,
                       int chunkSize)
         {
