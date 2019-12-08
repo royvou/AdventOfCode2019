@@ -30,36 +30,37 @@ namespace AdventOfCode.Solutions.Year2019
         {
             const int BOARDWIDTH = 25;
             const int BOARDHEIGHT = 6;
-            //var img = new int[BOARDWIDTH, BOARDHEIGHT];
             var img = new int[BOARDHEIGHT][];
 
             var boards = GetBoard(Input.TrimEnd(), 25, 6).ToList();
 
-            for (var y = 0; y < BOARDHEIGHT; y++)
+            for (var y = 0; y < img.Length; y++)
             {
                 img[y] = new int[BOARDWIDTH];
                 for (var x = 0; x < BOARDWIDTH; x++)
                 {
-                    //img[i, j] = GetPixelColorAt(boards, i, j);
                     img[y][x] = GetPixelColorAt(boards, x, y);
                 }
             }
 
-            var sb = new StringBuilder();
+            return FormatOutput(img);
+        }
 
+        private static string FormatOutput(int[][] img)
+        {
+            var sb = new StringBuilder();
             sb.AppendLine();
-            for (var j = 0; j < BOARDHEIGHT; j++)
+            for (var j = 0; j < img.Length; j++)
             {
-                for (var i = 0; i < BOARDWIDTH; i++)
+                for (var i = 0; i < img[j].Length; i++)
                 {
                     sb.Append(img[j][i] == 1 ? "#" : " ");
                 }
                 sb.AppendLine();
-
             }
 
             return sb.ToString();
-        }
+        }      
 
         private int GetPixelColorAt(List<IList<IList<int>>> boards, int x, int y)
         {
