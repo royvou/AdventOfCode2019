@@ -96,7 +96,7 @@ namespace AdventOfCode.Solutions
             {
                 input = File.ReadAllText(INPUT_FILEPATH);
             }
-            else if (DateTime.Now >= new DateTime(Year, 12, Day))
+            else if (DateTime.Now >= new DateTime(Year, 12, Day, 5,0,0))
             {
                 try
                 {
